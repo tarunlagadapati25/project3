@@ -1,0 +1,90 @@
+/* Styles for the date picker container */
+.calendar-container {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Styles for the calendar header */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Styles for the month and year display */
+.month-year-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Styles for the control buttons */
+.control-button {
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.control-button:hover {
+    color: #007BFF;
+}
+
+/* Styles for the calendar grid */
+.calendar-grid {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+/* Styles for the day header row */
+.day-header-row th {
+    text-align: center;
+    padding: 5px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Styles for the calendar cells */
+td {
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Styles for days belonging to the previous month */
+.previous-month-day {
+    color: #00fd3d;
+}
+
+/* Styles for days belonging to the current month */
+.current-month-day {
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 1%;
+}
+
+.current-month-day:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for days belonging to the next month */
+.next-month-day {
+    color: #ccc;
+}
+
+.textContext {
+    align-items: start;
+}
+
+
