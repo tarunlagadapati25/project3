@@ -1,19 +1,18 @@
 'use strict';
+
 class TemplateProcessor {
-    static process(template, data) {
-        return template.replace(/{{\s*([\w.]+)\s*}}/g, (match, property) => {
-            // Use a callback function to replace placeholders with data properties
-            let value = data;
-            const props = property.split('.');
-            for (const prop of props) {
-                if (value.hasOwnProperty(prop)) {
-                    value = value[prop];
-                } else {
-                    // Property not found, return an empty string
-                    return '';
-                }
+    constructor(template) {
+        this.template = template;
+    }
+    fillIn(dictionary){
+        let returnString = this.template;
+        for (const property in dictionary){
+            if (Object.prototype.hasOwnProperty.call(dictionary, property)) {
+                returnString = returnString.replaceAll("{{" + property + "}}",dictionary[property]);
             }
-            return value;
-        });
+        }
+        const regex = /{{.*}}/g;
+        returnString = returnString.replaceAll(regex,"");
+        return returnString;
     }
 }

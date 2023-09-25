@@ -1,63 +1,36 @@
 'use strict';
 
 class TableTemplate {
-    static fillIn(id, dictionary, columnName) {
+    static fillIn(id, dictionary, columnName){
+        console.log(columnName);
         const table = document.getElementById(id);
-        if (!table) {
-            console.error(`Table with ID "${id}" not found.`);
-            return;
-        }
-
-        const rows = table.rows;
-
-        if (rows.length === 0) {
-            console.error(`Table with ID "${id}" has no rows.`);
-            return;
-        }
-
-        const headerRow = rows[0];
-        this.processRow(headerRow, dictionary);
-
-        let columnIndex = -1;
-        if (columnName) {
-            for (let i = 0; i < headerRow.cells.length; i++) {
-                if (headerRow.cells[i].textContent.trim() === columnName) {
-                    columnIndex = i;
+        if (columnName === undefined) {
+            const templateProcessor = new TemplateProcessor(table.innerHTML);
+            table.innerHTML = templateProcessor.fillIn(dictionary);
+        } else {
+            const headerRow = table.rows[0];
+            let templateProcessor = new TemplateProcessor(headerRow.innerHTML);
+            headerRow.innerHTML = templateProcessor.fillIn(dictionary);
+            let processingindex = null;
+            for(let index = 0; index < headerRow.cells.length; index++){
+                if (headerRow.cells[index].innerHTML === columnName){
+                    processingindex = index;
                     break;
                 }
             }
-        }
-
-        for (let rowIndex = 1; rowIndex < rows.length; rowIndex++) {
-            const currentRow = rows[rowIndex];
-
-            if (columnIndex >= 0 && columnIndex < currentRow.cells.length) {
-                this.processRow(currentRow, dictionary, columnIndex);
+            if (processingindex !== null){
+                for(let index = 1; index < table.rows.length; index++){
+                    const row = table.rows[index];
+                    for(let jndex = 0; jndex < row.cells.length; jndex++){
+                        if (jndex === processingindex){
+                            const cell = row.cells[jndex];
+                            templateProcessor = new TemplateProcessor(cell.innerHTML);
+                            cell.innerHTML = templateProcessor.fillIn(dictionary);
+                        }
+                    }
+                }
             }
         }
-
-        if (table.style.visibility === 'hidden') {
-            table.style.visibility = 'visible';
-        }
-    }
-
-    static processRow(row, dictionary, columnIndex) {
-        const cells = row.cells;
-        for (let i = 0; i < cells.length; i++) {
-            const cell = cells[i];
-            const cellContent = cell.textContent;
-            const replacedContent = this.replaceTemplates(cellContent, dictionary);
-            cell.textContent = columnIndex === undefined ? replacedContent : i === columnIndex ?
-                replacedContent : cellContent;
-        }
-    }
-
-    static replaceTemplates(text, dictionary) {
-        return text.replace(/{{\s*([\w.]+)\s*}}/g, (match, prop) => {
-            if (dictionary.hasOwnProperty(prop)) {
-                return dictionary[prop];
-            }
-            return '';
-        });
+        table.style.visibility = "visible";
     }
 }
