@@ -5,15 +5,15 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 10px;
     padding: 10px;
 }
 
 .calendar-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .month-year-display {
@@ -39,7 +39,7 @@
 
 .calendar-grid {
     border-collapse: collapse;
-    width: 50%;
+    width: 100%;
 }
 
 .day-header-row th {
