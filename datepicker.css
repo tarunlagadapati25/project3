@@ -31,9 +31,11 @@
     cursor: pointer;
     background: none;
     border: none;
-    outline: none;
-    padding: 5px;
-    transition: color 0.3s;
+    outline: 3px;
+    padding: 1px;
+    transition: color 0.1s;
+    margin-right: 10px;
+
 }
 
 .control-button:hover {
@@ -80,7 +82,7 @@ td {
 
 /* Styles for days belonging to the next month */
 .next-month-day {
-    color: #ccc;
+    color: #fd0036;
 }
 
 .textContext {

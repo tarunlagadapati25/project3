@@ -19,18 +19,38 @@
     'use strict';
 
     /* global DatePicker */
-    const datePicker1 = new DatePicker("datepicker1", function (id, fixedDate) {
-        console.log("DatePicker with id", datePicker1,
-            "selected date:", fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year);
+    var datePicker1 = new DatePicker('datepicker1', function (id, fixedDate) {
+        console.log(
+            'DatePicker with id',
+            id,
+            'selected date:',
+            fixedDate.month + '/' + fixedDate.day + '/' + fixedDate.year,
+        );
     });
-    datePicker1.render(new Date()); // Display the current month
-
-    const datePicker2 = new DatePicker("datepicker2", function (id, fixedDate) {
-        console.log("DatePicker with id", datePicker2,
-            "selected date:", fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year);
+    datePicker1.render(new Date());
+    var datePicker2 = new DatePicker('datepicker2', function (id, fixedDate) {
+        console.log(
+            'DatePicker with id',
+            id,
+            'selected date:',
+            fixedDate.month + '/' + fixedDate.day + '/' + fixedDate.year,
+        );
     });
-    datePicker2.render(new Date("January 1, 2009"));
+    datePicker2.render(new Date('1/1/2009'));
     // ]]>
+
 </script>
 </body>
 </html>
+
+<!--const datePicker1 = new DatePicker("datepicker1", function (id, fixedDate) {-->
+<!--console.log("DatePicker with id", datePicker1,-->
+<!--"selected date:", fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year);-->
+<!--});-->
+<!--datePicker1.render(new Date()); // Display the current month-->
+
+<!--const datePicker2 = new DatePicker("datepicker2", function (id, fixedDate) {-->
+<!--console.log("DatePicker with id", datePicker2,-->
+<!--"selected date:", fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year);-->
+<!--});-->
+<!--datePicker2.render(new Date("January 1, 2009"));-->

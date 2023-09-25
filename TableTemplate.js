@@ -1,10 +1,4 @@
-'use strict'
-// const jsdom = require('jsdom');
-// const { JSDOM } = jsdom;
-// //
-// // // Create a new virtual DOM
-// const dom = new JSDOM('<!DOCTYPE html><html><body><div id="table">Hello, DOM!</div></body></html>');
-// const document = dom.window.document;
+'use strict';
 
 class TableTemplate {
     static fillIn(id, dictionary, columnName) {
@@ -23,7 +17,7 @@ class TableTemplate {
 
         // Process the header row for column names
         const headerRow = rows[0];
-        this._processRow(headerRow, dictionary);
+        this.processRow(headerRow, dictionary);
 
         // If a columnName is specified, find its index
         let columnIndex = -1;
@@ -42,7 +36,7 @@ class TableTemplate {
 
             // Check if the columnIndex is valid
             if (columnIndex >= 0 && columnIndex < currentRow.cells.length) {
-                this._processRow(currentRow, dictionary, columnIndex);
+                this.processRow(currentRow, dictionary, columnIndex);
             }
         }
 
@@ -52,17 +46,18 @@ class TableTemplate {
         }
     }
 
-    static _processRow(row, dictionary, columnIndex) {
+    static processRow(row, dictionary, columnIndex) {
         const cells = row.cells;
         for (let i = 0; i < cells.length; i++) {
             const cell = cells[i];
             const cellContent = cell.textContent;
-            const replacedContent = this._replaceTemplates(cellContent, dictionary);
-            cell.textContent = columnIndex === undefined ? replacedContent : i === columnIndex ? replacedContent : cellContent;
+            const replacedContent = this.replaceTemplates(cellContent, dictionary);
+            cell.textContent = columnIndex === undefined ? replacedContent : i === columnIndex ?
+                replacedContent : cellContent;
         }
     }
 
-    static _replaceTemplates(text, dictionary) {
+    static replaceTemplates(text, dictionary) {
         return text.replace(/{{\s*([\w.]+)\s*}}/g, (match, prop) => {
             if (dictionary.hasOwnProperty(prop)) {
                 return dictionary[prop];
