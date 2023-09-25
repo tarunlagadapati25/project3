@@ -35,11 +35,10 @@
     padding: 1px;
     transition: color 0.1s;
     margin-right: 10px;
-
 }
 
 .control-button:hover {
-    color: #007BFF;
+    color: #fd0036;
 }
 
 /* Styles for the calendar grid */
@@ -52,7 +51,7 @@
 .day-header-row th {
     text-align: center;
     padding: 5px;
-    background-color: #f0f0f0;
+    background-color: #00b1fd;
     font-weight: bold;
 }
 
@@ -71,13 +70,13 @@ td {
 
 /* Styles for days belonging to the current month */
 .current-month-day {
-    background-color: #007BFF;
+    background-color: #000305;
     color: #fff;
     border-radius: 1%;
 }
 
 .current-month-day:hover {
-    background-color: #0056b3;
+    background-color: #010315;
 }
 
 /* Styles for days belonging to the next month */
