@@ -89,7 +89,7 @@ class DatePicker {
                 if (i === 0 && j < startingDay) {
                     // Cell belongs to the previous month
                     cell.classList.add('previous-month-day');
-                    const lastMonthDay = totalDays - startingDay + j + 1;
+                    const lastMonthDay = " ";
                     cell.textContent = lastMonthDay;
                 } else if (currentDay <= totalDays) {
                     // Cell belongs to the current month
@@ -107,7 +107,7 @@ class DatePicker {
                 } else {
                     // Cell belongs to the next month
                     cell.classList.add('next-month-day');
-                    const nextMonthDay = currentDay - totalDays;
+                    const nextMonthDay = " ";
                     cell.textContent = nextMonthDay;
                 }
                 row.appendChild(cell);
