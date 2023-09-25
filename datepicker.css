@@ -1,4 +1,3 @@
-/* Styles for the date picker container */
 .calendar-container {
     font-family: Arial, sans-serif;
     background-color: #fff;
@@ -10,7 +9,6 @@
     padding: 10px;
 }
 
-/* Styles for the calendar header */
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -18,14 +16,12 @@
     margin-bottom: 10px;
 }
 
-/* Styles for the month and year display */
 .month-year-display {
     font-size: 1.2rem;
     font-weight: bold;
     text-transform: capitalize;
 }
 
-/* Styles for the control buttons */
 .control-button {
     font-size: 1.2rem;
     cursor: pointer;
@@ -41,13 +37,11 @@
     color: #fd0036;
 }
 
-/* Styles for the calendar grid */
 .calendar-grid {
     border-collapse: collapse;
     width: 50%;
 }
 
-/* Styles for the day header row */
 .day-header-row th {
     text-align: center;
     padding: 5px;
@@ -55,7 +49,7 @@
     font-weight: bold;
 }
 
-/* Styles for the calendar cells */
+
 td {
     text-align: center;
     padding: 5px;
@@ -63,12 +57,10 @@ td {
     transition: background-color 0.3s;
 }
 
-/* Styles for days belonging to the previous month */
 .previous-month-day {
     color: #00fd3d;
 }
 
-/* Styles for days belonging to the current month */
 .current-month-day {
     background-color: #000305;
     color: #fff;
@@ -79,7 +71,6 @@ td {
     background-color: #010315;
 }
 
-/* Styles for days belonging to the next month */
 .next-month-day {
     color: #fd0036;
 }

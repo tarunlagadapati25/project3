@@ -1,10 +1,4 @@
 'use strict';
-// const jsdom = require('jsdom');
-// const { JSDOM } = jsdom;
-//
-// // // Create a new virtual DOM
-// const dom = new JSDOM('<!DOCTYPE html><body><div id="id">Hello, DOM!</div></body></html>');
-// const document = dom.window.document;
 class DatePicker {
     constructor(divId, dateSelectedCallback) {
         this.divId = divId;
@@ -19,15 +13,12 @@ class DatePicker {
             return;
         }
 
-        // Clear the container
         container.innerHTML = '';
 
-        // Create the calendar header
         const header = document.createElement('div');
         header.classList.add('calendar-header');
         container.appendChild(header);
 
-        // Create the previous and next month buttons
         const prevButton = document.createElement('button');
         prevButton.classList.add('control-button');
         prevButton.textContent = '<';
@@ -37,7 +28,6 @@ class DatePicker {
         });
         header.appendChild(prevButton);
 
-        // Create the month and year display
         const monthYearDisplay = document.createElement('div');
         monthYearDisplay.classList.add('month-year-display');
         monthYearDisplay.textContent = this.getMonthYearString(monthToShow);
@@ -52,12 +42,10 @@ class DatePicker {
         });
         header.appendChild(nextButton);
 
-        // Create the calendar grid
         const calendarGrid = document.createElement('table');
         calendarGrid.classList.add('calendar-grid');
         container.appendChild(calendarGrid);
 
-        // Create the day header row
         const dayHeaderRow = document.createElement('tr');
         dayHeaderRow.classList.add('day-header-row');
         calendarGrid.appendChild(dayHeaderRow);
@@ -69,15 +57,12 @@ class DatePicker {
             dayHeaderRow.appendChild(dayHeaderCell);
         });
 
-        // Calculate the first day of the month
         const firstDayOfMonth = new Date(monthToShow.getFullYear(), monthToShow.getMonth(), -1);
         const startingDay = firstDayOfMonth.getDay();
 
-        // Calculate the last day of the month
         const lastDayOfMonth = new Date(monthToShow.getFullYear(), monthToShow.getMonth() + 1, 0);
         const totalDays = lastDayOfMonth.getDate();
 
-        // Create the calendar cells
         let currentDay = 1;
         for (let i = 0; i < 6; i++) { // Create up to 6 rows for the calendar
             if (currentDay > totalDays) {
