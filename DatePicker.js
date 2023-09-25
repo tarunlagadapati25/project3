@@ -64,20 +64,18 @@ class DatePicker {
         const totalDays = lastDayOfMonth.getDate();
 
         let currentDay = 1;
-        for (let i = 0; i < 6; i++) { // Create up to 6 rows for the calendar
+        for (let i = 0; i < 6; i++) {
             if (currentDay > totalDays) {
                 break;
             }
             const row = document.createElement('tr');
-            for (let j = 0; j < 7; j++) { // Create 7 cells for each row
+            for (let j = 0; j < 7; j++) {
                 const cell = document.createElement('td');
                 if (i === 0 && j < startingDay) {
-                    // Cell belongs to the previous month
                     cell.classList.add('previous-month-day');
                     const lastMonthDay = " ";
                     cell.textContent = lastMonthDay;
                 } else if (currentDay <= totalDays) {
-                    // Cell belongs to the current month
                     cell.classList.add('current-month-day');
                     cell.textContent = currentDay;
                     cell.addEventListener('click', () => {
@@ -90,7 +88,6 @@ class DatePicker {
                     });
                     currentDay++;
                 } else {
-                    // Cell belongs to the next month
                     cell.classList.add('next-month-day');
                     const nextMonthDay = " ";
                     cell.textContent = nextMonthDay;
